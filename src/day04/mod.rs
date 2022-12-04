@@ -4,11 +4,31 @@ pub fn day4() {
 }
 
 pub fn part1() -> usize {
-    raw_input().len()
+    raw_input()
+        .lines()
+        .filter(|line| {
+            let rc = line
+                .split(['-', ','])
+                .map(|s| s.parse::<usize>().unwrap())
+                .collect::<Vec<_>>();
+            (rc[0] <= rc[2] && rc[1] >= rc[3]) || (rc[0] >= rc[2] && rc[1] <= rc[3])
+        })
+        .count()
 }
 
 pub fn part2() -> usize {
-    raw_input().len()
+    raw_input()
+        .lines()
+        .filter(|line| {
+            let rc = line
+                .split(['-', ','])
+                .map(|s| s.parse::<usize>().unwrap())
+                .collect::<Vec<_>>();
+            (rc[0] >= rc[2] && rc[0] <= rc[3])
+                || (rc[1] >= rc[2] && rc[1] <= rc[3])
+                || (rc[0] <= rc[2] && rc[1] >= rc[3])
+        })
+        .count()
 }
 
 #[cfg(not(test))]
@@ -27,11 +47,11 @@ mod tests {
 
     #[test]
     fn test_part1() {
-        assert_eq!(0, part1());
+        assert_eq!(2, part1());
     }
 
     #[test]
     fn test_part2() {
-        assert_eq!(0, part2());
+        assert_eq!(4, part2());
     }
 }
