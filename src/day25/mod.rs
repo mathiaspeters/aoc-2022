@@ -3,8 +3,8 @@ pub fn day25() {
     println!("Result 25-2: {}", part2());
 }
 
-pub fn part1() -> usize {
-    raw_input().len()
+pub fn part1() -> String {
+    "".to_owned()
 }
 
 pub fn part2() -> usize {
@@ -27,7 +27,7 @@ mod tests {
 
     #[test]
     fn test_part1() {
-        assert_eq!(0, part1());
+        assert_eq!("2 = -1 = 0", part1());
     }
 
     #[test]

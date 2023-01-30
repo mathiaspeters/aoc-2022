@@ -27,7 +27,7 @@ mod tests {
 
     #[test]
     fn test_part1() {
-        assert_eq!(0, part1());
+        assert_eq!(18, part1());
     }
 
     #[test]
